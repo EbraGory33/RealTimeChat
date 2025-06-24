@@ -252,10 +252,12 @@ backend/
 
 ## Getting Started
 
-### 1. Navigate to the Backend
+### 1. Clone the Repository and Navigate to the Backend
 
 ```bash
+git clone https://github.com/EbraGory33/Grapevine_Chat_App.git
 cd backend
+
 ```
 
 ### 2. Install dependencies
