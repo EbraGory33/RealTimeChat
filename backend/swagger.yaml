@@ -1,0 +1,143 @@
+openapi: 3.0.0
+info:
+  title: Grapevine Messaging API
+  version: 1.0.0
+  description: |
+    Welcome to the API documentation for the Grapevine real-time messaging application. 
+    This API is built with Express, MongoDB, and Socket.IO.
+
+servers:
+  - url: http://localhost:8000
+
+paths:
+  /api/auth/register:
+    post:
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, username, password]
+              properties:
+                email:
+                  type: string
+                  example: user@example.com
+                username:
+                  type: string
+                  example: johndoe
+                password:
+                  type: string
+                  example: mysecurepassword
+      responses:
+        "201":
+          description: User created
+        "400":
+          description: Invalid input or email already exists
+
+  /api/auth/login:
+    post:
+      summary: Login a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [username, password]
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "200":
+          description: Login successful
+        "400":
+          description: Invalid credentials
+
+  /api/auth/logout:
+    post:
+      summary: Logout a user
+      responses:
+        "200":
+          description: Logged out successfully
+
+  /api/auth/authenticate:
+    get:
+      summary: Check authentication status
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Returns user data if authenticated
+        "401":
+          description: Not authenticated
+
+  /api/messages/users:
+    get:
+      summary: Fetch sidebar users (excluding current user)
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: List of users
+
+  /api/messages/contacts:
+    get:
+      summary: Fetch contacts the current user has messaged with
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: List of contacts
+
+  /api/messages/{id}:
+    get:
+      summary: Fetch messages between the logged-in user and a contact
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: Contact user's ID
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Array of message objects
+
+  /api/messages/send/{id}:
+    post:
+      summary: Send a new message to a contact
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: Contact user's ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                  example: "Hey, how's it going?"
+      security:
+        - cookieAuth: []
+      responses:
+        "201":
+          description: Message sent
+
+components:
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: jwt
