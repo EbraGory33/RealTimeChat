@@ -10,7 +10,11 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(`Logging in with: ${username}`);
-    login({ username, password });
+    try{
+      await login({ username, password });
+    }catch(error){
+      console.error(`Login Error: ${error}`)
+    }
   };
 
   return (

@@ -1,4 +1,4 @@
-# Technical Specification: GrapeVine Real-Time Messaging App
+# Technical Specification: Real-Time Messaging Chat App
 
 ## Overview
 
@@ -255,7 +255,7 @@ backend/
 ### 1. Clone the Repository and Navigate to the Backend
 
 ```bash
-git clone https://github.com/EbraGory33/Grapevine_Chat_App.git
+git clone https://github.com/EbraGory33/Real_Time_Messaging_Chat_App.git
 cd backend
 
 ```

@@ -28,9 +28,9 @@ export const useChatStore = create((set, get) => ({
     set({ isMessagesLoading: true });
     try {
       const res = await MessageHistory(userId);
-      console.log("Fetched messages:", res);
+      //console.log("Fetched messages:", res);
       set({ messages: res.data });
-      console.log("Current messages state:", get().messages);
+      //console.log("Current messages state:", get().messages);
     } catch (error) {
       toast.error(error?.response?.data?.message || "Unable to fetch messages.");
     } finally {
@@ -63,8 +63,8 @@ export const useChatStore = create((set, get) => ({
     if (!selectedUser) return;
 
     const socket = useAuthStore.getState().socket;
-    console.log("Subscribing to messages from:", selectedUser);
-    console.log("Socket instance:", socket);
+    //console.log("Subscribing to messages from:", selectedUser);
+    //console.log("Socket instance:", socket);
 
     socket.on("newMessage", (newMessage) => {
       const isMessageSentFromSelectedUser = newMessage.sender === selectedUser._id;

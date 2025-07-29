@@ -46,7 +46,7 @@ export const useAuthStore = create((set, get) => ({
     set({ isLoggingIn: true });
     try {
       const response = await LoginUser(username, password);
-      set({ user: response.data });
+      set({ user: response.data });      
       toast.success("Logged in successfully.");
       get().initializeSocket();
     } catch (err) {

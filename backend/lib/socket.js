@@ -27,7 +27,7 @@ const getSocketIdForUser = (userId) => {
 const onlineUsersMap = {};
 
 io.on("connection", (socket) => {
-  console.log(`A user connected: ${socket.id}`);
+  //console.log(`A user connected: ${socket.id}`);
 
   const userId = socket.handshake.query.userId;
   if (userId) addUserSocket(userId, socket.id)
@@ -58,7 +58,7 @@ io.on("connection", (socket) => {
    * Removes them from the online users map and updates all clients.
    */
   socket.on("disconnect", () => {
-    console.log("A user disconnected", socket.id);
+    //console.log("A user disconnected", socket.id);
     if (userId) {
       removeUserSocket(userId);
       io.emit("getOnlineUsers", getOnlineUserIds());

@@ -14,7 +14,7 @@ const NoChatSelected = () => {
         </div>
 
         {/* Greeting */}
-        <h2 className="text-2xl font-bold">Welcome to GrapeVine chat app!</h2>
+        <h2 className="text-2xl font-bold">Welcome to Messaging chat app!</h2>
       </div>
     </section>
   );

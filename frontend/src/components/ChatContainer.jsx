@@ -26,7 +26,7 @@ const ChatContainer = () => {
 
     getMessages(selectedUser._id);
     subscribeToMessages();
-
+    //console.log(`user_id:${user._id}`);
     return () => unsubscribeFromMessages();
   }, [selectedUser?._id, getMessages, subscribeToMessages, unsubscribeFromMessages]);
 
@@ -36,7 +36,7 @@ const ChatContainer = () => {
     }
   }, [messages]);
 
-  if (isMessagesLoading) {
+  if (isMessagesLoading || !user) {
     return (
       <div className="flex-1 flex flex-col overflow-auto">
         <ChatHeader />
@@ -51,6 +51,7 @@ const ChatContainer = () => {
       <ChatHeader />
 
       <div className="flex-1 p-4 overflow-y-auto space-y-5">
+        <div>{user._id} {typeof(user._id)}</div>
         {messages.map((msg) => {
           const isFromCurrentUser = msg.sender === user._id;
           const senderInitial = isFromCurrentUser

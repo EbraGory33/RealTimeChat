@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  title: Grapevine Messaging API
+  title: Messaging Chat API
   version: 1.0.0
   description: |
-    Welcome to the API documentation for the Grapevine real-time messaging application. 
+    Welcome to the API documentation for the real-time Messaging Chat application. 
     This API is built with Express, MongoDB, and Socket.IO.
 
 servers:

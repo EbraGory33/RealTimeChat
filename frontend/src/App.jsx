@@ -13,17 +13,28 @@ import { Loader } from "lucide-react";
 
 function App() {
   const { user, verifyAuth, isVerifyingAuth } = useAuthStore();
-
+  
   useEffect(() => {
-    verifyAuth();
+    const fetchData = async () => {
+      try {
+        await verifyAuth();
+      } catch (error) {
+        console.error("Fetch error:", error);
+      }
+    };
+    
+    fetchData();
+    
   }, [verifyAuth]);
   
-  if (isVerifyingAuth && !user)
+  if (isVerifyingAuth && !user){
+    console.log("isVerifyingAuth && !user");
     return (
       <div className="flex items-center justify-center h-screen">
         <Loader className="size-10 animate-spin" />
       </div>
     );
+  }
 
 
   return (

@@ -15,7 +15,7 @@ const fetchSidebarUsers = async (req, res) => {
     try {
         const loggedInUserID = req.user._id
         const filteredUsers = await User.find({ _id: { $ne: loggedInUserID } });
-        console.log(filteredUsers);
+        //console.log(filteredUsers);
         res.status(200).json(filteredUsers);
     } catch (error) {
         return handleServerError(res, error, 'fetchSidebarUsers');
@@ -61,7 +61,7 @@ const getContacts = async (req, res) => {
 
         const contacts = await User.find({ _id: { $in: contactIDs } });
 
-        console.log(JSON.stringify(contacts, null, 2));
+        //console.log(JSON.stringify(contacts, null, 2));
 
         res.status(200).json(contacts);
     } catch (error) {
@@ -78,15 +78,15 @@ const getMessages = async (req, res) => {
     try {
         const { id: ContactId } = req.params;
         const UserId = req.user._id;
-        console.log("Logged-in user ID:", UserId);
-        console.log(`ContactId = ${ContactId}`);
+        //console.log("Logged-in user ID:", UserId);
+        //console.log(`ContactId = ${ContactId}`);
         const messages = await Message.find({
             $or: [
                 { sender: UserId, receiver: ContactId },
                 { sender: ContactId, receiver: UserId }, 
             ],
         });
-        console.log(JSON.stringify(messages, null, 2));
+        //console.log(JSON.stringify(messages, null, 2));
         res.status(200).json(messages);
     } catch (error) {
         return handleServerError(res, error, 'getMessages');

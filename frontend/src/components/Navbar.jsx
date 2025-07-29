@@ -10,7 +10,7 @@ const Navbar = () => {
         <div className="flex items-center space-x-6">
           <div className="flex items-center space-x-3 cursor-pointer hover:opacity-90 transition-opacity">
             <img src="/logo.jpeg" alt="Logo" className="w-6 h-6 rounded-md" />
-            <h1 className="text-xl font-semibold">Ebrahim's GrapeVine chat app</h1>
+            <h1 className="text-xl font-semibold">chat app</h1>
           </div>
         </div>
 

@@ -1,6 +1,6 @@
-# Grapevine Messaging Backend
+# Chat Messaging Backend
 
-A lightweight, real-time messaging backend built using **Node.js**, **Express**, **MongoDB**, and **Socket.IO**. This backend powers user authentication, real-time chat messaging, and session management for the Grapevine Messaging app.
+A lightweight, real-time messaging backend built using **Node.js**, **Express**, **MongoDB**, and **Socket.IO**. This backend powers user authentication, real-time chat messaging, and session management for the Chat Messaging app.
 
 ---
 
@@ -84,11 +84,10 @@ backend/
 
 ## Getting Started
 
-### 1. Clone the repository
+### 1. Navigate to the Backend Directory
 
 ```bash
-git clone https://github.com/yourusername/grapevine-backend.git
-cd grapevine-backend
+cd backend
 ```
 
 ### 2. Install dependencies
@@ -97,7 +96,7 @@ cd grapevine-backend
 npm install
 ```
 
-### 3. Environment Variables
+### 3. Create the Environment Variables
 
 .env file
 
