@@ -73,7 +73,7 @@ export const useAuthStore = create((set, get) => ({
     const { user, socket } = get();
     if (!user || socket?.connected) return;
 
-    const newSocket = io("http://localhost:8000", {
+    const newSocket = io(process.env.REACT_APP_API_BASE_URL, {
       query: { userId: user._id },
     });
 
