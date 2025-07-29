@@ -115,16 +115,6 @@ const logout = (req, res) => {
   }
 };
 
-res
-  .cookie("jwt", "", {
-    maxAge: 0,
-    httpOnly: true,
-    sameSite: process.env.NODE_ENV === "development" ? "lax" : "none",
-    secure: process.env.NODE_ENV !== "development",
-  })
-  .status(200)
-  .json({ message: "Logged out successfully" });
-
 /**
  * Checks if the user is authenticated by returning user data.
  * @param {import('express').Request} req
