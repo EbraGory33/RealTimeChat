@@ -8,7 +8,7 @@ const server = http.createServer(app);
 
 // Initialize Socket.IO with CORS settings
 const io = new Server(server, {
-  cors: { origin: ["http://localhost:3000"] },
+  cors: { origin: [process.env.CLIENT_ORIGIN] },
 });
 
 /**
